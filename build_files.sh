@@ -1,2 +1,13 @@
-# pip install -r requirements.txt
-# python3.12.11 manage.py collectstatic --no-input --clear
+# Update pip
+echo "Updating pip..."
+python3 -m pip install -U pip
+
+# Install project dependencies
+echo "Installing project dependencies..."
+python3 -m pip install -r requirements.txt
+
+# Collect static files
+echo "Collecting static files..."
+python3 manage.py collectstatic --noinput --clear
+
+echo "Build process completed!"
