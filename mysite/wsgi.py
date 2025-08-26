@@ -16,4 +16,4 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mysite.settings')
 application = get_wsgi_application()
 
 # allow Vercel to connect to your Django application correctly.
-app = get_wsgi_application()
+app = application
