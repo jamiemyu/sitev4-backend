@@ -129,11 +129,10 @@ USE_TZ = True
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-STATIC_URL = "/backend/static/"
-STATIC_ROOT = BASE_DIR / "staticfiles_build" / "backend" / "static"
-STATICFILES_DIRS = [BASE_DIR / "backend" / "static"]
+STATIC_URL = "/static/"
+STATIC_ROOT = BASE_DIR / "staticfiles_build" / "static"
+STATICFILES_DIRS = [BASE_DIR / "static"]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
