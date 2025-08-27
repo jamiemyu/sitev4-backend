@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "corsheaders",
     "backend.posts.apps", # Posts application
-    "backend.core",
+    "backend",
 ]
 
 CORS_ALLOWED_ORIGINS = ['http://localhost:5173']
@@ -60,7 +60,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = "backend.urls"
+ROOT_URLCONF = "urls"
 
 TEMPLATES = [
     {
@@ -131,7 +131,7 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 STATIC_ROOT = BASE_DIR / "staticfiles_build" / "static"
-STATICFILES_DIRS = [BASE_DIR / "static"]
+STATICFILES_DIRS = [BASE_DIR / "sitev4" / "static"]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
