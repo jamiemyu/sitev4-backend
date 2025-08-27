@@ -24,7 +24,7 @@
         },
         {
             "src": "/static/(.*)",
-            "dest": "/static/$1"
+            "dest": "/backend/static/$1"
         }
     ]
 }
