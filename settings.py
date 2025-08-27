@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "rest_framework",
     "corsheaders",
-    "backend.posts", # Posts application
+    "backend.posts.apps", # Posts application
+    "backend.core",
 ]
 
 CORS_ALLOWED_ORIGINS = ['http://localhost:5173']
@@ -59,7 +60,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = "urls"
+ROOT_URLCONF = "backend.urls"
 
 TEMPLATES = [
     {
