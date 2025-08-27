@@ -19,8 +19,10 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path
 
+from core.api import views
+
 urlpatterns = [
-    #path("", index, name="index"),
+    path("", views.index, name="index"),
     #path("posts/", include("posts.urls")),
     path('admin/', admin.site.urls),
     path('api/', include("core.api.urls")),
