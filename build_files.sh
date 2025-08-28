@@ -8,6 +8,8 @@ python3 -m pip install -r requirements.txt
 python3 -m pip install psycopg2-binary # PostgreSQL
 python3 -m pip install djangorestframework
 python3 -m pip install django-cors-headers
+python3 -m pip install django-phonenumber-field[phonenumbers]
+python3 -m pip install django-money
 
 # Collect static files
 echo "Collecting static files..."

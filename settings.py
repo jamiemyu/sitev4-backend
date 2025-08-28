@@ -35,6 +35,7 @@ ALLOWED_HOSTS = [
 # Application definition
 
 INSTALLED_APPS = [
+    "corsheaders",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -42,8 +43,12 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "rest_framework",
-    "corsheaders",
-    "posts.apps.PostsConfig",
+    "phonenumber_field",
+    "djmoney",
+    # Apps
+    "clients.apps.ClientsConfig",
+    "plans.apps.PlansConfig",
+    "testimonials.apps.TestimonialsConfig",
 ]
 
 CORS_ALLOWED_ORIGINS = ['http://localhost:5173']
