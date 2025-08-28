@@ -9,8 +9,11 @@ https://docs.djangoproject.com/en/5.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
+import os 
 
 from pathlib import Path
+from dotenv import load_dotenv
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent
@@ -86,14 +89,22 @@ WSGI_APPLICATION = "wsgi.app"
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'sitev4_posts',
-            'USER': 'jamieyu',
-            'PASSWORD': 'jamieyu',
-            'HOST': 'localhost',  # Or your database host's IP/hostname
-            'PORT': '5432',       # Or your database's port
-        }
+    "default": {
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": os.environ.get("DB_NAME"),
+        "USER": os.environ.get("DB_USER"),
+        "PASSWORD": os.environ.get("DB_PASSWORD"),
+        "HOST": os.environ.get("DB_HOST"),
+        "PORT": os.environ.get("DB_PORT"),
+    }
+    # 'default': {
+    #         'ENGINE': 'django.db.backends.postgresql',
+    #         'NAME': 'sitev4_posts',
+    #         'USER': 'jamieyu',
+    #         'PASSWORD': 'jamieyu',
+    #         'HOST': 'localhost',  # Or your database host's IP/hostname
+    #         'PORT': '5432',       # Or your database's port
+    #     }
 }
 
 
