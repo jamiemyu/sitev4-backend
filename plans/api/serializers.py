@@ -4,4 +4,4 @@ from ..models import Plan
 class PlansSerializer(ModelSerializer):
     class Meta:
         model = Plan
-        fields = ('id', 'name', 'description')
+        fields = '__all__'
