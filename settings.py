@@ -27,8 +27,6 @@ DEBUG = True
 ALLOWED_HOSTS = [
     "127.0.0.1",  # Local server
     ".vercel.app", # Vercal domains e.g., sitev4.vercel.app
-    "www.jamieyu.contact",
-    "jamieyu.contact",
 ]
 
 
