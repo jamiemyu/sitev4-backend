@@ -19,11 +19,11 @@ class PricingStrategy(models.TextChoices):
     PRICING_STRATEGY_ONE_TIME = "PRICING_STRATEGY_ONE_TIME", "Purchased once"
 
 
-class Price(models.Model):
-    pricing_strategy = models.CharField(
+class Plan(models.Model):
+    plan_type = models.CharField(
         max_length=50,
-        choices=PricingStrategy.choices,
-        default=PricingStrategy.PRICING_STRATEGY_MONTHLY,
+        choices=PlanType.choices,
+        default=PlanType.PLAN_PERSONALIZED_COACHING,
     )
     price = MoneyField(
         decimal_places=2,
@@ -31,18 +31,11 @@ class Price(models.Model):
         default_currency="USD",
         max_digits=5,
     )
-
-    def toJSON(self):
-        return json.dumps(self, default=lambda o: o.__dict__, sort_keys=True, indent=4)
-
-
-class Plan(models.Model):
-    plan_type = models.CharField(
+    pricing_strategy = models.CharField(
         max_length=50,
-        choices=PlanType.choices,
-        default=PlanType.PLAN_PERSONALIZED_COACHING,
+        choices=PricingStrategy.choices,
+        default=PricingStrategy.PRICING_STRATEGY_MONTHLY,
     )
-    price = Price()
     description = models.TextField(blank=True)
 
     def __str__(self):
