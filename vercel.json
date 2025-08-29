@@ -26,5 +26,24 @@
             "src": "/static/(.*)",
             "dest": "/static/$1"
         }
+    ],
+    "headers": [
+        {
+            "source": "/api/(.*)",
+            "headers": [
+                {
+                    "key": "Access-Control-Allow-Origin",
+                    "value": "https://sitev4-frontend-ipkc1etfa-jamiemyus-projects.vercel.app"
+                },
+                {
+                    "key": "Access-Control-Allow-Methods",
+                    "value": "GET"
+                },
+                {
+                    "key": "Access-Control-Allow-Headers",
+                    "value": "Content-Type, Authorization"
+                }
+            ]
+        }
     ]
 }
