@@ -60,8 +60,15 @@ INSTALLED_APPS = [
 
 CORS_ALLOWED_ORIGINS = ["http://localhost:5173", "https://jamieyu.contact"]
 
-# If you need credentials (cookies, auth headers):
-CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_DEBUG = True
+
+CORS_ALLOW_METHODS = [
+    "GET",
+    "POST",
+    "PUT",
+    "DELETE",
+    "OPTIONS",
+]
 
 # Common headers that might be needed:
 CORS_ALLOW_HEADERS = [
