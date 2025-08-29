@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 import dotenv
 import os
 
+from corsheaders.defaults import default_methods, default_headers
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -58,30 +59,19 @@ INSTALLED_APPS = [
     "testimonials.apps.TestimonialsConfig",
 ]
 
-CORS_ALLOWED_ORIGINS = ["http://localhost:5173", "https://jamieyu.contact"]
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",
+    "https://jamieyu.contact",
+    "https://www.jamieyu.contact",
+    "https://www.jamieyu.contact/",
+]
 
 CORS_ALLOW_DEBUG = True
 
-CORS_ALLOW_METHODS = [
-    "GET",
-    "POST",
-    "PUT",
-    "DELETE",
-    "OPTIONS",
-]
+CORS_ALLOW_METHODS = [*default_methods]
 
 # Common headers that might be needed:
-CORS_ALLOW_HEADERS = [
-    'accept',
-    'accept-encoding',
-    'authorization',
-    'content-type',
-    'dnt',
-    'origin',
-    'user-agent',
-    'x-csrftoken',
-    'x-requested-with',
-]
+CORS_ALLOW_HEADERS = [*default_headers]
 
 MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
