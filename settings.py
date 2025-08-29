@@ -59,17 +59,13 @@ INSTALLED_APPS = [
     "testimonials.apps.TestimonialsConfig",
 ]
 
+CORS_ALLOW_DEBUG = True
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
     "https://jamieyu.contact",
     "https://www.jamieyu.contact",
 ]
-
-CORS_ALLOW_DEBUG = True
-
 CORS_ALLOW_METHODS = [*default_methods]
-
-# Common headers that might be needed:
 CORS_ALLOW_HEADERS = [*default_headers]
 
 MIDDLEWARE = [
