@@ -58,7 +58,23 @@ INSTALLED_APPS = [
     "testimonials.apps.TestimonialsConfig",
 ]
 
-CORS_ALLOWED_ORIGINS = ["http://localhost:5173"]
+CORS_ALLOWED_ORIGINS = ["http://localhost:5173", "https://jamieyu.contact"]
+
+# If you need credentials (cookies, auth headers):
+CORS_ALLOW_CREDENTIALS = True
+
+# Common headers that might be needed:
+CORS_ALLOW_HEADERS = [
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+]
 
 MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
