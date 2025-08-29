@@ -97,20 +97,12 @@ WSGI_APPLICATION = "wsgi.app"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "HOST": os.environ.get("DB_HOST"),
         "NAME": os.environ.get("DB_NAME"),
         "USER": os.environ.get("DB_USER"),
         "PASSWORD": os.environ.get("DB_PASSWORD"),
-        "HOST": os.environ.get("DB_HOST"),
         "PORT": os.environ.get("DB_PORT"),
     }
-    # 'default': {
-    #         'ENGINE': 'django.db.backends.postgresql',
-    #         'NAME': 'sitev4_posts',
-    #         'USER': 'jamieyu',
-    #         'PASSWORD': 'jamieyu',
-    #         'HOST': 'localhost',  # Or your database host's IP/hostname
-    #         'PORT': '5432',       # Or your database's port
-    #     }
 }
 
 

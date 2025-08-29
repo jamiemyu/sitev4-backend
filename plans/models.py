@@ -37,6 +37,7 @@ class Plan(models.Model):
         default=PricingStrategy.PRICING_STRATEGY_MONTHLY,
     )
     description = models.TextField(blank=True)
+    key_features = models.TextField(blank=True)
 
     def __str__(self):
         return f"Plan: {self.plan_type}"
