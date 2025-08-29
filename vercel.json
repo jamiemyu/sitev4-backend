@@ -33,7 +33,7 @@
             "headers": [
                 {
                     "key": "Access-Control-Allow-Origin",
-                    "value": "jamieyu.contact"
+                    "value": "https://jamieyu.contact"
                 },
                 {
                     "key": "Access-Control-Allow-Methods",
