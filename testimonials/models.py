@@ -4,10 +4,11 @@ from django.core.validators import MaxValueValidator
 from clients.models import Client
 from plans.models import Plan
 
-# Create your models here.
-
 
 class Testimonial(models.Model):
+    """
+    A Testimonial is a review of a client's experience with a plan.
+    """
     client_id = models.ForeignKey(Client, on_delete=models.CASCADE, null=True)
     plan_id = models.ForeignKey(Plan, on_delete=models.SET_NULL, null=True)
     star_rating = models.IntegerField(
@@ -15,5 +16,5 @@ class Testimonial(models.Model):
     )
     review_text = models.TextField()
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"Testimonial: {self.review_text} 5-Star Rating: {self.star_rating}"

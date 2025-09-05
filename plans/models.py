@@ -1,11 +1,11 @@
 from djmoney.models.fields import MoneyField
 from django.db import models
-import json
-
-# Create your models here.
 
 
 class PlanType(models.TextChoices):
+    """
+    The type of plan.
+    """
     PLAN_PERSONALIZED_COACHING = "PLAN_PERSONALIZED_COACHING", "Personalized Coaching"
     PLAN_TWELVE_WEEK_MARATHON = (
         "PLAN_TWELVE_WEEK_MARATHON",
@@ -15,11 +15,17 @@ class PlanType(models.TextChoices):
 
 
 class PricingStrategy(models.TextChoices):
+    """
+    The strategy for pricing a plan.
+    """
     PRICING_STRATEGY_MONTHLY = "PRICING_STRATEGY_MONTHLY", "Priced per month"
     PRICING_STRATEGY_ONE_TIME = "PRICING_STRATEGY_ONE_TIME", "Purchased once"
 
 
 class Plan(models.Model):
+    """
+    A Plan is a program that a client can enroll in.
+    """
     plan_type = models.CharField(
         max_length=50,
         choices=PlanType.choices,
@@ -39,5 +45,5 @@ class Plan(models.Model):
     description = models.TextField(blank=True)
     key_features = models.TextField(blank=True)
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"Plan: {self.plan_type}"
