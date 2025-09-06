@@ -1,3 +1,15 @@
+"""
+The idea of a greedy algorithm is to use trackers (for min/max) to
+find the "best" value while going through a data structure.
+Once the element/node is visited, it is decided upon and we don't come back to it.
+
+Typically, we store at least 2 values:
+1) The "best" found value so far (whether it's a max or a min)
+2) Any additional trackers needed to compare against the future elements visited
+   further in the data structure.
+"""
+
+
 def get_max_profit(stock_price) -> float:
     """
     Returns the maximum value profit you could make from a list of stock prices.
@@ -14,29 +26,35 @@ def get_max_profit(stock_price) -> float:
     - Can a stock price be <0?
     """
     if len(stock_price) < 2:
-        raise ValueError("Must have at least two stock prices")
+        raise ValueError("Must be at least 2 stock prices provided!")
 
-    max_profit = 0
+    max_profit = stock_price[1] - stock_price[0]
 
-    best_max_profit = stock_price[1] - stock_price[0]
-    current_min_price = stock_price[0]
+    # Keep track of the best minimum found so far. This will be used to compute the maximal profit.
+    # Profit = Sale price (max) - Purchase price (min)
+    min_so_far = stock_price[0]
 
-    for i in range(1, len(stock_price)):
-        current_price = stock_price[i]
+    for i in range(1, len(stock_price), 1):
+        price = stock_price[i]
 
-        max_profit = current_price - current_min_price
-        if max_profit > best_max_profit:
-            best_max_profit = max_profit
+        profit = price - min_so_far
+        if profit > max_profit:
+            max_profit = profit
+        
+        # Replace the min price if we find it to be less than min so far
+        if price < min_so_far:
+            min_so_far = price
 
-        if current_price < current_min_price:
-            current_min_price = current_price
-
-    return best_max_profit
+    return max_profit
 
 
 print(
     "get_max_profit([10, 7, 5, 8, 11, 9]) = "
     + str(get_max_profit([10, 7, 5, 8, 11, 9]))
+)
+print(
+    "get_max_profit([10, 8, 1]) = "
+    + str(get_max_profit([10, 8, 1]))
 )
 
 
