@@ -62,31 +62,48 @@ def get_min_num_coins(coins, total: float) -> float:
     """
     Returns the minimum number of coins needed to produce a given total.
     Returns -1 if the total cannot be produced with the given coins.
-    """
-    if total < min(coins):
-        print("Total is less than any coin value provided!")
-        return -1
 
-    # Try the largest coin first to minimize the number of coins we need to use.
+    Ex. 1 
+    input: coins = [1, 5, 10, 25], total = 30
+    output: 2
+    2 coins needed to produce the total: 25 + 5 = 30
+
+    input: coins = [10, 25], total = 5
+    output: -1
+    No coins provided can produce the total.
+
+    input: coins = [5, 10, 25], total = 21
+    output: 
+    2 * 10 leaves 1 remaining, and no coin is small enough to fit that.
+    """
+
+    if (total < min(coins)):
+        return -1
+    
+    min_num_coins = 0
+
+    # We want to use as many large coins as possible. Sort Large > Small values.
     coins.sort(reverse=True)
 
-    # Track the minimum to be returned.
-    min_num_coins = 0
-    # Track what is remaining of the total.
+    # Start with the total as the remaining amount to deduct from.
     remaining = total
     for coin in coins:
         while remaining >= coin:
+            # Try and deduct from the remaining for each coin provided.
             remaining -= coin
             min_num_coins += 1
 
-    if remaining == 0:
-        return min_num_coins
-    # If anything is leftover, there is no possible combination of coins that can be used for change.
-    else:
+    if remaining > 0:
         return -1
+    else:
+        return min_num_coins
 
-
+    
 print(
     "get_min_num_coins([1, 5, 10, 25], 30) = "
     + str(get_min_num_coins([1, 5, 10, 25], 30))
+)
+print(
+    "get_min_num_coins([5, 10, 25], 21) = "
+    + str(get_min_num_coins([5, 10, 25], 21))
 )
