@@ -21,6 +21,11 @@ we would want to estimate some quantitative load on the system which is required
 - Definition of an active user - e.g., A user that issues 5 searches a day
 - Data size, and how much you expect the system to store, transfer, etc. - e.g., 100 Bytes per request 
 
+You can do a rough data estimate, or even QPS.
+
+ex. QPS: 10M Active Users/day * 5 new searches/user * 4 follow-up messages/search = 200M requests / day
+ex. Data sizing: 200^6 requests/day * 100 Bytes / request = 2^4 MB / day * 365 days / year = 7.3^6 MB / year ~ 7.3TB/year 
+
 Walk through a few thought processes to help influence choices in the design:
 - Is the system going to be read- or write- heavy? 
 - Do we care more about consistency or availability?
